@@ -1,15 +1,27 @@
 
-import { Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 
 const Index = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
+  const navigate = useNavigate();
 
-  if (isAuthenticated) {
-    return <Navigate to="/" replace />;
+  useEffect(() => {
+    if (!isLoading) {
+      if (isAuthenticated) {
+        navigate("/", { replace: true });
+      } else {
+        navigate("/login", { replace: true });
+      }
+    }
+  }, [isAuthenticated, isLoading, navigate]);
+
+  if (isLoading) {
+    return <div className="flex h-screen w-full items-center justify-center">Loading...</div>;
   }
 
-  return <Navigate to="/login" replace />;
+  return null;
 };
 
 export default Index;

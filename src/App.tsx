@@ -14,6 +14,8 @@ import ReportUpload from "./pages/ReportUpload";
 import ReportView from "./pages/ReportView";
 import AppointmentBooking from "./pages/AppointmentBooking";
 import NotFound from "./pages/NotFound";
+import Profile from "./pages/Profile";
+import Reports from "./pages/Reports";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,14 @@ const AppRoutes = () => {
         </ProtectedRoute>
       } />
 
+      <Route path="/reports" element={
+        <ProtectedRoute>
+          <MainLayout>
+            <Reports />
+          </MainLayout>
+        </ProtectedRoute>
+      } />
+
       <Route path="/reports/upload" element={
         <ProtectedRoute>
           <MainLayout>
@@ -84,6 +94,14 @@ const AppRoutes = () => {
         <ProtectedRoute>
           <MainLayout>
             <AppointmentBooking />
+          </MainLayout>
+        </ProtectedRoute>
+      } />
+
+      <Route path="/profile" element={
+        <ProtectedRoute>
+          <MainLayout>
+            <Profile />
           </MainLayout>
         </ProtectedRoute>
       } />
