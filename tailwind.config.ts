@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Custom colors for our medical app
+				medical: {
+					primary: "#1E88E5",
+					dark: "#0D47A1",
+					light: "#BBDEFB",
+					alert: "#F44336",
+					success: "#4CAF50",
+					warning: "#FF9800"
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +94,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-opacity': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-opacity': 'pulse-opacity 2s ease-in-out infinite'
 			}
 		}
 	},
