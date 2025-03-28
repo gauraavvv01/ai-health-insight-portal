@@ -115,7 +115,7 @@ const ReportUpload = () => {
                   Supports PDF files up to 10MB
                 </p>
                 <label htmlFor="file-upload">
-                  <Button as="span">Browse Files</Button>
+                  <Button className="cursor-pointer">Browse Files</Button>
                   <input
                     id="file-upload"
                     type="file"
