@@ -13,9 +13,11 @@ import Dashboard from "./pages/Dashboard";
 import ReportUpload from "./pages/ReportUpload";
 import ReportView from "./pages/ReportView";
 import AppointmentBooking from "./pages/AppointmentBooking";
+import AppointmentDetail from "./pages/AppointmentDetail";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import Reports from "./pages/Reports";
+import Appointments from "./pages/Appointments";
 
 const queryClient = new QueryClient();
 
@@ -90,10 +92,26 @@ const AppRoutes = () => {
         </ProtectedRoute>
       } />
 
+      <Route path="/appointments" element={
+        <ProtectedRoute>
+          <MainLayout>
+            <Appointments />
+          </MainLayout>
+        </ProtectedRoute>
+      } />
+
       <Route path="/appointments/book" element={
         <ProtectedRoute>
           <MainLayout>
             <AppointmentBooking />
+          </MainLayout>
+        </ProtectedRoute>
+      } />
+
+      <Route path="/appointments/:id" element={
+        <ProtectedRoute>
+          <MainLayout>
+            <AppointmentDetail />
           </MainLayout>
         </ProtectedRoute>
       } />
